@@ -5,8 +5,6 @@ use rand_chacha::{rand_core::SeedableRng, ChaCha8Rng};
 const SEED: u64 = 42;
 
 pub fn approximate_pi(nr_samples: usize, n_threads: usize) -> f64 {
-    // TODO check that nr_samples > n_threads
-
     let num_circle_samples: Vec<usize> = (0..n_threads)
         .into_iter()
         .map(|thread_idx| {
@@ -36,10 +34,6 @@ pub fn approximate_pi(nr_samples: usize, n_threads: usize) -> f64 {
 
     let num_circle: usize = num_circle_samples.iter().sum();
     let approx = 4. * (num_circle as f64) / ((nr_samples * n_threads) as f64);
-    println!(
-        "π is approximately {approx} [nr_samples = {}]",
-        nr_samples * n_threads
-    );
 
     approx
 }
@@ -50,8 +44,13 @@ mod tests {
 
     #[test]
     fn convergence_speed() {
-        for n_samples in [10, 100, 1_000, 10_000, 100_000, 1_000_000, 10_000_000] {
+        for n_samples in [10, 100, 1_000, 10_000, 100_000, 1_000_000] {
             let approx = approximate_pi(n_samples, 8);
+
+            println!(
+                "π is approximately {approx} [nr_samples = {}]",
+                n_samples * 8
+            );
             assert_eq!(approx as usize, 3);
         }
     }

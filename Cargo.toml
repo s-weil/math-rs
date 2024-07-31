@@ -1,2 +1,2 @@
 [workspace]
-members = [ "pi/mc_simulation" ]
+members = [ "pi/leibniz_series", "pi/mc_simulation" ]
