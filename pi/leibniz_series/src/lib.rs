@@ -17,7 +17,16 @@ mod tests {
 
     #[test]
     fn convergence_speed() {
-        for n_samples in [10, 100, 1_000, 10_000, 100_000, 1_000_000, 10_000_000, 100_000_000] {
+        for n_samples in [
+            10,
+            100,
+            1_000,
+            10_000,
+            100_000,
+            1_000_000,
+            10_000_000,
+            100_000_000,
+        ] {
             let approx = approximate_pi(n_samples);
             assert_eq!(approx as usize, 3);
             println!("π is approximately {approx} [nr_samples = {n_samples}]");
