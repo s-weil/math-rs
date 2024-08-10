@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 // Problem 1: multiples of 3 and 5
 fn solution(divisors: &[usize], n: usize) -> Option<usize> {
     if n == 0 || divisors.is_empty() {
