@@ -1,2 +1,3 @@
 [workspace]
+resolver="2"
 members = [ "pi/leibniz_series", "pi/mc_simulation" , "pi/riemann_integration", "project_euler/problems"]
