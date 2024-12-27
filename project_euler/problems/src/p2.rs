@@ -10,6 +10,11 @@ impl FibonacciSeqElem {
     fn value(&self) -> usize {
         self.curr
     }
+
+    /// Initializes the element corresponding to f_1 and f_2
+    fn init() -> Self {
+        Self { curr: 1, prev: 1 }
+    }
 }
 
 /// Infinite Fibonacci sequence
@@ -64,6 +69,17 @@ impl Iterator for FiniteFibonacciSeqGenerator {
 }
 
 fn solution(n_max: usize) -> usize {
+    let generator = FiniteFibonacciSeqGenerator::init(n_max, n_max);
+
+    let sum = generator
+        .into_iter()
+        .fold(0, |acc, v| if v % 2 == 0 { acc + v } else { acc });
+
+    sum
+}
+
+fn solution_alt(n_max: usize) -> usize {
+    // let mut f_gen = FibonacciSeqElem { curr: 1, prev: 1 };
     let generator = FiniteFibonacciSeqGenerator::init(n_max, n_max);
 
     let sum = generator

@@ -38,6 +38,7 @@ mod tests {
     #[test]
     #[ignore]
     fn solution_question() {
-        assert_eq!(super::max_palyndrome(100, 999), Some(9009));
+        // assert_eq!(super::max_palyndrome(100, 999), Some(9009));
+        assert_eq!(super::max_palyndrome(100, 1000), Some(9009));
     }
 }
