@@ -1,5 +1,4 @@
 #![allow(dead_code)]
-use std::usize;
 
 struct FibonacciSeqElem {
     curr: usize,
@@ -64,7 +63,7 @@ impl Iterator for FiniteFibonacciSeqGenerator {
         if v > self.max_value {
             return None;
         }
-        return Some(self.cursor.value());
+        Some(self.cursor.value())
     }
 }
 

@@ -15,15 +15,14 @@ pub fn upper_unit_circle(x: f64) -> Option<f64> {
 // TODO extend to variable interval
 fn integrate_unit_interval(n_samples: usize) -> f64 {
     let delta = 1.0 / (n_samples as f64);
-    let integral = (0..n_samples).into_iter().fold(0.0, |acc, idx| {
+    (0..n_samples).into_iter().fold(0.0, |acc, idx| {
         let x = idx as f64 * delta;
         let Some(y) = upper_unit_circle(x) else {
             panic!("x is out of bounds");
         };
         let area = y * delta;
         acc + area
-    });
-    integral
+    })
 }
 
 pub fn approximate_pi(n_samples: usize) -> f64 {
